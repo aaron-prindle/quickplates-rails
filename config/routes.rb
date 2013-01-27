@@ -1,4 +1,10 @@
 Quickplates::Application.routes.draw do
+  resources :friendships
+
+
+  resources :users
+
+
   resources :restaurants
 
 
