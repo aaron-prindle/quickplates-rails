@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @suggestion.name %>
+</p>
+
+<p>
+  <b>Lat:</b>
+  <%= @suggestion.lat %>
+</p>
+
+<p>
+  <b>Lng:</b>
+  <%= @suggestion.lng %>
+</p>
+
+<p>
+  <b>Wait:</b>
+  <%= @suggestion.wait %>
+</p>
+
+<p>
+  <b>Votes for:</b>
+  <%= @suggestion.votes_for %>
+</p>
+
+<p>
+  <b>Votes against:</b>
+  <%= @suggestion.votes_against %>
+</p>
+
+
+<%= link_to 'Edit', edit_suggestion_path(@suggestion) %> |
+<%= link_to 'Back', suggestions_path %>

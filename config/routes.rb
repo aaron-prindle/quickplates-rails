@@ -1,4 +1,13 @@
 Quickplates::Application.routes.draw do
+  resources :suggestions
+
+
+  resources :groups
+
+
+  resources :invites
+
+
   resources :friendships
 
 

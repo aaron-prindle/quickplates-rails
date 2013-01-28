@@ -1,0 +1,3 @@
+class Invite < ActiveRecord::Base
+  attr_accessible :accept, :group_id, :username
+end

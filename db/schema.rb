@@ -11,13 +11,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130126170052) do
+ActiveRecord::Schema.define(:version => 20130128055617) do
 
   create_table "friendships", :force => true do |t|
     t.integer  "user_id"
     t.integer  "friend_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "groups", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "invites", :force => true do |t|
+    t.integer  "group_id"
+    t.string   "username"
+    t.boolean  "accept"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "user_id"
   end
 
   create_table "restaurants", :force => true do |t|
@@ -29,6 +43,18 @@ ActiveRecord::Schema.define(:version => 20130126170052) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "suggestions", :force => true do |t|
+    t.string   "name"
+    t.float    "lat"
+    t.float    "lng"
+    t.integer  "wait"
+    t.integer  "votes_for"
+    t.integer  "votes_against"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.integer  "group_id"
+  end
+
   create_table "users", :force => true do |t|
     t.string   "username"
     t.string   "password"
@@ -36,6 +62,7 @@ ActiveRecord::Schema.define(:version => 20130126170052) do
     t.datetime "last_seen"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "group_id"
   end
 
 end

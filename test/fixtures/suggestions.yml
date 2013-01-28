@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  lat: 1.5
+  lng: 1.5
+  wait: 1
+  votes_for: 1
+  votes_against: 1
+
+two:
+  name: MyString
+  lat: 1.5
+  lng: 1.5
+  wait: 1
+  votes_for: 1
+  votes_against: 1
