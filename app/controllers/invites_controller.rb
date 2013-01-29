@@ -67,10 +67,9 @@ class InvitesController < ApplicationController
           invited_user.invites << new_invite
           invited_user.save
         end
-        cur_user = User.where(username: username).first
-        cur_user.invites << @invite
-        cur_user.save
-        # format.html { redirect_to @invite, notice: 'Invite was successfully created.' }
+        # cur_user = User.where(username: username).first
+        # cur_user.invites << @invite
+        # cur_user.save
         format.html { render json: @invite } #might work
         format.json { render json: @invite }
       else
