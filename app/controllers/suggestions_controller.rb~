@@ -1,11 +1,16 @@
 class SuggestionsController < ApplicationController
+  skip_before_filter :verify_authenticity_token
+
   # GET /suggestions
   # GET /suggestions.json
   def index
-    @suggestions = Suggestion.all
+    group_id = params[:group_id]
+    cur_group = Group.where(id: group_id).first
+    @suggestions = cur_group.suggestions
 
     respond_to do |format|
-      format.html # index.html.erb
+      # format.html # index.html.erb
+      format.html { render json: @suggestions }
       format.json { render json: @suggestions }
     end
   end
@@ -40,10 +45,13 @@ class SuggestionsController < ApplicationController
   # POST /suggestions
   # POST /suggestions.json
   def create
+    group_id = params[:group_id]
+    cur_group = Group.where(id: group_id).first
     @suggestion = Suggestion.new(params[:suggestion])
 
     respond_to do |format|
       if @suggestion.save
+        cur_group.suggestions << suggestion
         format.html { redirect_to @suggestion, notice: 'Suggestion was successfully created.' }
         format.json { render json: @suggestion, status: :created, location: @suggestion }
       else

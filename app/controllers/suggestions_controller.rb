@@ -51,7 +51,7 @@ class SuggestionsController < ApplicationController
 
     respond_to do |format|
       if @suggestion.save
-        cur_group.suggestions << suggestion
+        cur_group.suggestions << @suggestion
         format.html { redirect_to @suggestion, notice: 'Suggestion was successfully created.' }
         format.json { render json: @suggestion, status: :created, location: @suggestion }
       else
