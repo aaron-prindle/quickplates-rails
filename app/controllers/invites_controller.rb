@@ -8,7 +8,7 @@ class InvitesController < ApplicationController
     username = params[:username]
     cur_user = User.where(username: username).first
     @invite = cur_user.invites.last #change this to use list?
-    #cur_user.invites.destroy_all #deletes all invites currently
+    cur_user.invites.destroy_all #deletes all invites currently
     #check if it was a recent invite
     respond_to do |format|
       # format.html # index.html.erb
